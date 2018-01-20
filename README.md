@@ -1,2 +1,0 @@
-# dataHW
-data analysis bootcamp

@@ -1,0 +1,52 @@
+Sub totalvolume()
+For Each ws In Worksheets
+    Dim count As Integer
+    Dim total As Double
+    Dim b1 As Double
+    
+    Dim b2 As Double
+
+    LastRow = ws.Cells(Rows.count, 1).End(xlUp).Row
+    ws.Range("I1").Value = "ticker"
+    ws.Range("J1").Value = "yearly change"
+    ws.Range("K1").Value = "percent change"
+    ws.Range("L1").Value = "total volume"
+
+
+    count = 0
+    total = 0
+    For j = 2 To LastRow
+        total = total + ws.Cells(j, 7).Value
+        If ws.Cells(j, 1).Value = ws.Cells(j + 1, 1).Value Then
+        Else
+        ws.Cells(2 + count, 9).Value = ws.Cells(j, 1).Value
+        ws.Cells(2 + count, 12).Value = Int(total)
+        count = count + 1
+        total = 0
+        End If
+        If Right(ws.Cells(j, 2), 4) = "0101" Then
+        b1 = ws.Cells(j, 3).Value
+        ElseIf Right(ws.Cells(j, 2), 4) = "1231" Or (Right(ws.Cells(j, 2), 4) = "1230" And Right(ws.Cells(j, 2), 4) <> "1231") Then
+        b2 = ws.Cells(j, 6) - b1
+        ws.Cells(1 + count, 10).Value = b2
+            If b2 < 0 Then
+            ws.Cells(1 + count, 10).Interior.ColorIndex = 3
+            Else
+            ws.Cells(1 + count, 10).Interior.ColorIndex = 4
+            End If
+            If b1 = 0 Then
+            ws.Cells(1 + count, 11).Value = "DNE"
+            Else
+            ws.Cells(1 + count, 11).Value = b2 / b1
+            End If
+            
+        ws.Cells(1 + count, 11).NumberFormat = "0.00%"
+        End If
+        
+    Next j
+Next ws
+
+End Sub
+
+
+

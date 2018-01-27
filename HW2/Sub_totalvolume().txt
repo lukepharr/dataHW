@@ -26,7 +26,7 @@ For Each ws In Worksheets
         End If
         If Right(ws.Cells(j, 2), 4) = "0101" Then
         b1 = ws.Cells(j, 3).Value
-        ElseIf Right(ws.Cells(j, 2), 4) = "1231" Or (Right(ws.Cells(j, 2), 4) = "1230" And Right(ws.Cells(j, 2), 4) <> "1231") Then
+        ElseIf Right(ws.Cells(j, 2), 4) = "1231" Or (Right(ws.Cells(j, 2), 4) = "1230" And Right(ws.Cells(j+1, 2), 4) <> "1231") Then
         b2 = ws.Cells(j, 6) - b1
         ws.Cells(1 + count, 10).Value = b2
             If b2 < 0 Then

@@ -16,3 +16,14 @@ order by last_name, first_name;
 #2d 
 select country_id, country from country
 where country in ('Afghanistan','Bangladesh','China');
+#3a 
+alter table actor
+add column middle_name varchar(100) after first_name;
+#3b
+alter table actor
+modify middle_name blob;
+#3c
+alter table actor
+drop middle_name;
+#4a
+select last_name, count(*) from actor group by last_name;

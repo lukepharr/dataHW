@@ -30,3 +30,12 @@ select last_name, count(*) from actor group by last_name;
 #4b
 select last_name, count(*) from actor group by last_name
 having count(*) > 1; 
+#4c
+update actor set first_name = 'Harpo' where first_name = 'Groucho' and last_name='Williams';
+#4d
+update actor 
+set first_name = case when first_name='Harpo' then 'Groucho' else 'Mucho Groucho' end
+where (actor_id=172);
+
+
+172

@@ -27,3 +27,6 @@ alter table actor
 drop middle_name;
 #4a
 select last_name, count(*) from actor group by last_name;
+#4b
+select last_name, count(*) from actor group by last_name
+having count(*) > 1; 

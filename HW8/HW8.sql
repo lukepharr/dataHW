@@ -107,3 +107,16 @@ inner join inventory
 on film.film_id=inventory.film_id
 group by film.title
 order by count(inventory.inventory_id) desc;
+#7f
+select staff.store_id, sum(payment.amount)
+from staff
+inner join payment
+on staff.staff_id=payment.staff_id
+group by staff.store_id;
+#7g
+select store.store_id, city.city, country.country
+from store
+	inner join city
+		on (select address.city_id from address where address.address_id in (store.address_id))=city.city_id
+	inner join country
+		on (select city.country_id from city where city.city_id in (select address.city_id from address where address.address_id in (store.address_id)))=country.country_id

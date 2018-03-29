@@ -51,4 +51,23 @@ inner join payment
 on staff.staff_id=payment.staff_id
 where month(payment.payment_date)=8 and year(payment.payment_date)=2005
 group by first_name, last_name;
-
+#6c
+select film.title, count(film_actor.actor_id)
+from film 
+inner join film_actor
+on film.film_id=film_actor.film_id
+group by film.title;
+#6d 
+select film.film_id, count(inventory.inventory_id)
+from film
+inner join inventory
+on film.film_id=inventory.film_id
+where film.title='Hunchback Impossible'
+group by film.film_id;
+#6e
+select customer.first_name, customer.last_name, sum(payment.amount)
+from customer
+inner join payment
+on payment.customer_id=customer.customer_id
+group by customer.first_name, customer.last_name
+order by customer.last_name;

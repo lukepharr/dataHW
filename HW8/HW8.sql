@@ -120,3 +120,14 @@ from store
 		on (select address.city_id from address where address.address_id in (store.address_id))=city.city_id
 	inner join country
 		on (select city.country_id from city where city.city_id in (select address.city_id from address where address.address_id in (store.address_id)))=country.country_id
+#8a
+create view myview as
+select staff.store_id, sum(payment.amount)
+from staff
+inner join payment
+on staff.staff_id=payment.staff_id
+group by staff.store_id;
+#8b
+select * from myview;
+#8c
+drop view myview;

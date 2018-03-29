@@ -84,3 +84,19 @@ select film_actor.actor_id from film_actor
 where film_actor.film_id in(
 select film.film_id from film
 where film.title = 'Alone Trip'));
+#7c
+select email from customer
+where address_id in (
+select address.address_id from address
+where address.city_id in(
+select city.city_id from city
+where city.country_id in(
+select country.country_id from country
+where country.country='canada')));
+#7d
+select title, film_id from film
+where film_id in(
+select film_category.film_id from film_category
+where category_id in(
+select category.category_id from category
+where category.name='family'));

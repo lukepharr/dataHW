@@ -100,3 +100,10 @@ select film_category.film_id from film_category
 where category_id in(
 select category.category_id from category
 where category.name='family'));
+#7e 
+select film.title, count(inventory.inventory_id)
+from film
+inner join inventory
+on film.film_id=inventory.film_id
+group by film.title
+order by count(inventory.inventory_id) desc;

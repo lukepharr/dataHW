@@ -71,3 +71,16 @@ inner join payment
 on payment.customer_id=customer.customer_id
 group by customer.first_name, customer.last_name
 order by customer.last_name;
+#7a
+select title from film
+where title like 'k%' or title like 'q%' 
+and language_id in(
+select language_id from language
+where language.name='english');
+#7b
+select first_name, last_name from actor
+where actor_id in(
+select film_actor.actor_id from film_actor 
+where film_actor.film_id in(
+select film.film_id from film
+where film.title = 'Alone Trip'));

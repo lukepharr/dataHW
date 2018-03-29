@@ -45,27 +45,27 @@ from staff
 inner join address
 on staff.address_id=address.address_id;
 #6b
-select staff.first_name, staff.last_name, sum(payment.amount)
+select staff.first_name, staff.last_name, sum(payment.amount) as 'total payment amount'
 from staff
 inner join payment
 on staff.staff_id=payment.staff_id
 where month(payment.payment_date)=8 and year(payment.payment_date)=2005
 group by first_name, last_name;
 #6c
-select film.title, count(film_actor.actor_id)
+select film.title, count(film_actor.actor_id) as 'cast count'
 from film 
 inner join film_actor
 on film.film_id=film_actor.film_id
 group by film.title;
 #6d 
-select film.film_id, count(inventory.inventory_id)
+select film.film_id, count(inventory.inventory_id) as 'inventory count'
 from film
 inner join inventory
 on film.film_id=inventory.film_id
 where film.title='Hunchback Impossible'
 group by film.film_id;
 #6e
-select customer.first_name, customer.last_name, sum(payment.amount)
+select customer.first_name, customer.last_name, sum(payment.amount) as 'total payment'
 from customer
 inner join payment
 on payment.customer_id=customer.customer_id
@@ -101,14 +101,16 @@ where category_id in(
 select category.category_id from category
 where category.name='family'));
 #7e 
-select film.title, count(inventory.inventory_id)
+select film.title, count(rental.inventory_id) as 'times rented'
 from film
-inner join inventory
-on film.film_id=inventory.film_id
+	inner join inventory
+		on film.film_id = inventory.film_id
+	inner join rental
+		on inventory.inventory_id=rental.inventory_id
 group by film.title
-order by count(inventory.inventory_id) desc;
+order by count(rental.inventory_id) desc;
 #7f
-select staff.store_id, sum(payment.amount)
+select staff.store_id, sum(payment.amount) as 'total earnings'
 from staff
 inner join payment
 on staff.staff_id=payment.staff_id
@@ -119,10 +121,10 @@ from store
 	inner join city
 		on (select address.city_id from address where address.address_id in (store.address_id))=city.city_id
 	inner join country
-		on (select city.country_id from city where city.city_id in (select address.city_id from address where address.address_id in (store.address_id)))=country.country_id
+		on (select city.country_id from city where city.city_id in (select address.city_id from address where address.address_id in (store.address_id)))=country.country_id;
 #8a
 create view myview as
-select staff.store_id, sum(payment.amount)
+select staff.store_id, sum(payment.amount) as 'total earnings'
 from staff
 inner join payment
 on staff.staff_id=payment.staff_id

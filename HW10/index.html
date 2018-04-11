@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Weather API Project</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Data <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Comparisons</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Plots <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Max Temperature</a></li>
+            <li><a href="#">Humidity</a></li>
+            <li><a href="#">Cloudiness</a></li>
+            <li><a href="#">Wind Speed</a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<body style="background-color: #675769">
+<div class='container-fluid' style="background-color:#898373;margin-left:50px;">
+	<div class='col-sm-4' style="background-color:#909838;margin-left:50px;font:helvetica;color:#902930">
+		
+		<h2>Project Summary</h1>
+		<hr style="color:#909283">
+		<h4>The purpose of this project is to compare the weather in cities across the globe according to their respective latitudes. A sample of 500 cities of evenly distributed longitude and latitude were sampled using the OpenWeatherMap API. This data was then analyzed using Python libraries pandas and plotted using matplotlib and seaborn. The results were mixed, with the most clear trends involving wind speed and temperature. Browse this website for the results.   </h4>
+		
+	</div>
+	
+
+	<div class='col-sm-6' style="background-color:#909838;margin-left:50px;font:helvetica;color:#902930">
+		<table>
+			<tr class="col-sm-3">
+				<td>
+					<a href="" > <img src='../HW6/Latitude vs Clouds.png' width="300px">  </a>
+				</td>
+			</tr>
+		</table>
+	
+		
+	</div>
+</div>
+</body>
+</html>

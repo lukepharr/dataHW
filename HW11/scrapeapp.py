@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import pymongo
-import scrape
+import scraper
 
 conn="mongodb://localhost/27017"
 client = pymongo.MongoClient(conn)
@@ -17,7 +17,8 @@ def db_insert():
 @app.route('/scrape')
 def scrape():
 	db.collection.remove()
-	db.collection.insert(scrape.scrape_nasa())
+	data_mars=scraper.scrape_nasa()
+	db.collection.insert(data_mars)
 	return render_template('scrape.html')
 
 if __name__ == "__main__":

@@ -1,16 +1,19 @@
 #dependencies
-import pymongo as mong
 import time 
 import requests as req
 import pandas as pd
 from bs4 import BeautifulSoup as bs
-from splinter import Browser as br
-executable_path = {'executable_path': 'chromedriver'}
-browser = br('chrome', **executable_path, headless=False)
+
+
+def path_maker():
+	from splinter import Browser
+	executable_path = {'executable_path': 'chromedriver'}
+	return Browser('chrome', **executable_path, headless=False)
 
 
 def scrape_nasa():
 	#fetching all news items (including the first)
+	browser=path_maker()
 	url='https://mars.nasa.gov/news'
 	browser.visit(url)
 	time.sleep(1)

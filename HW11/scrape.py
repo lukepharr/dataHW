@@ -65,11 +65,11 @@ def scrape_nasa():
 	    time.sleep(1)
 
 	#create result dictionary
-	result_dict={'first news title': first_title, 'first news teaser body': first_teaser, 'featured image':image_url, 'weather': weather_tweet,\
-	'facts table': facts_html}
+	result_dict={'first_news_title': first_title, 'first_news_teaser_body': first_teaser, 'featured_image':image_url, 'weather': weather_tweet,\
+	'facts_table': facts_html}
 	for x in download_urls:
 		result_dict.update(x)
 
-	return(result_dict)
+	return result_dict 
 
 

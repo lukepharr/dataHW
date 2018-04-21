@@ -10,9 +10,14 @@
 </head>
 <body>
 	<ul>
-	{% for x in data %}
-		<li>{{x}}</li>
-	{% endfor %}
+	
+		<li>most recent news: {{data.first_news_title}}</li>
+		<li>most recent news teaser body: {{data.first_news_teaser_body}}</li>
+		<li><img src="{{data.featured_image}}"></li>
+		<li>the weather on Mars is: {{data.weather}}</li>
+
+	
 	</ul>
+	{{data.facts_table}}
 </body>
 </html>

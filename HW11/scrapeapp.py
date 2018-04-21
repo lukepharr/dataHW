@@ -8,6 +8,7 @@ db=client.MarsDB
 collection=db.marsdata
 
 app = Flask(__name__)
+data_mars=scraper.scrape_nasa()
 
 @app.route('/')
 def db_insert():
@@ -16,8 +17,7 @@ def db_insert():
 
 @app.route('/scrape')
 def scrape():
-	db.collection.remove()
-	data_mars=scraper.scrape_nasa()
+	db.collection.remove({})
 	db.collection.insert(data_mars)
 	return render_template('scrape.html')
 

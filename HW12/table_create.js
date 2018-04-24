@@ -1,4 +1,5 @@
 var columns = ['datetime','city','state','country','shape','durationMinutes','comments']
+
 for (var i=0; i<dataSet.length; i++){
 	var table = document.getElementById('table');
 	var tr = document.createElement('tr');

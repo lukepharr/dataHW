@@ -5,10 +5,11 @@
 	<title>Homepage</title>
 	<header></header>
 	<script src="data.js"></script>
+
 </head>
 
 <body>
-	<form>
+	<form onkeyup="filter()">
 		Datetime: <input type="date" id="input">
 		City: <input type="text" id="input">
 		State: <input type="text" id="input">
@@ -29,15 +30,9 @@
 	</table>
 
 <script src="table_create.js"></script>
+<script src="table_filter.js"></script>
 
-<script type="text/javascript">
-	var table = document.getElementById('table');
-	var tr = getElementsByTagName('tr');
-	var inputs = document.getElementsById('input');
-	var filter = input.value.toUpperCase();
-	for (i=0;i<table.length;i++){
-	}
-</script>
+
 
 </body>
 </html>

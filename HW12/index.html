@@ -5,16 +5,17 @@
 	<title>Homepage</title>
 	<header></header>
 	<script src="data.js"></script>
-
+	<script src="table_create.js"></script>
+	<script src="table_recreate.js"></script>
 </head>
 
 <body>
 	<form>
-		Datetime: <input type="date" id="input0" onkeyup="filter0()">
-		City: <input type="text" id="input1" onkeyup="filter1()">
-		State: <input type="text" id="input2" onkeyup="filter2()">
-		Country: <input type="text" id="input3" onkeyup="filter3()">
-		Shape: <input type="text" id="input4" onkeyup="filter4()">
+		Datetime: <input type="text" id="input0" onkeyup="recreate()">
+		City: <input type="text" id="input1" onkeyup="recreate()">
+		State: <input type="text" id="input2" onkeyup="recreate()">
+		Country: <input type="text" id="input3" onkeyup="recreate()">
+		Shape: <input type="text" id="input4" onkeyup="recreate()">
 
 	</form>
 	<table id='table' border="1">
@@ -28,9 +29,10 @@
 			<td>Comments</td>			
 		</tr>
 	</table>
+<script type="text/javascript">
+	create()
+</script>
 
-<script src="table_create.js"></script>
-<script src="table_filter.js"></script>
 
 
 

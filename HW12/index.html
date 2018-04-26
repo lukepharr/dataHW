@@ -8,6 +8,9 @@
 	<script src="data.js"></script>
 	<script src="table_create.js"></script>
 	<script src="table_recreate.js"></script>
+	<script src="next.js"></script>
+	<script src="back.js"></script>
+	<script src="page.js"></script>
 
 
 </head>
@@ -42,6 +45,13 @@
 <script type="text/javascript">
 	create()
 </script>
+<button class="btn btn-primary btn-lg" onclick="back()">Back</button>
+<form class="form-inline"> 
+	Page: <input type="number" id="count_" >
+</form>
+<button class="btn btn-primary btn-lg" onclick="goThere()">Go!</button>
+<button class="btn btn-primary btn-lg" onclick="next()">Next</button>
+
 
 
 

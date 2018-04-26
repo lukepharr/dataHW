@@ -1,7 +1,7 @@
 function create(){
 	var columns = ['datetime','city','state','country','shape','durationMinutes','comments']
 
-	for (var i=0; i<dataSet.length; i++){
+	for (var i=0; i<dataSet.length/100; i++){
 		var table = document.getElementById('table');
 		var tr = document.createElement('tr');
 		for (var j=0; j<columns.length; j++){

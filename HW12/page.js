@@ -3,7 +3,7 @@ function goThere() {
 	var table=document.getElementById('table')
 	table.innerHTML="<tr id='tr0'> <td>Datetime</td> <td>City</td> <td>State</td> <td>Country</td> <td>Shape</td> <td>Duration in Minutes</td><td>Comments</td>	</tr>"
 	var columns = ['datetime','city','state','country','shape','durationMinutes','comments']
-	count = document.getElementById('count_').value;
+	count = Number(document.getElementById('count_').value);
 
 loop1:
 	for (var i=(count*pp); i<((count+1)*pp); i++){
@@ -28,5 +28,7 @@ loop1:
 
 	}
 	;
-
+console.log(count)
+console.log(pp)
+console.log((count+1))
 }

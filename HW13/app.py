@@ -52,13 +52,19 @@ def metadatas(sample):
 def wfreqfunc(sample):
 	sample = sample.replace('BB_', '')
 	data_2 = session.query(Metadata).statement
-	df_meta = pd.read_sql_query(data_2, session.bind)
-	wfreq_data = df_meta.loc[df_meta['SAMPLEID']==int(sample)]['WFREQ'].to_json(orient='records')
+	df_meta1 = pd.read_sql_query(data_2, session.bind)
+	wfreq_data = df_meta1.loc[df_meta1['SAMPLEID']==int(sample)]['WFREQ']\
+	.to_json(orient='records')
 	return 'washing frequency is ' + wfreq_data
 
 @app.route('/samples/<sample>')
-def otu_and_samples():
-	
+def otu_and_samples(sample):
+	data_3 = session.query(Samples).statement
+	df_samples_0 = pd.read_sql_query(data_3, session.bind)[["otu_id",sample]]\
+	.sort_values(by=[sample],ascending=False)[sample]
+	df_samples_1 = pd.read_sql_query(data_3, session.bind)[["otu_id",sample]]\
+	.sort_values(by=[sample],ascending=False)['otu_id']
+	return jsonify([{'otu_ids':df_samples_1.tolist(),'sample_values':df_samples_0.tolist()}])
 
 if __name__ == "__main__":
 	app.run(debug=True)

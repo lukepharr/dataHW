@@ -42,7 +42,6 @@ def otu():
 @app.route('/metadata/<sample>')
 def metadatas(sample):
 	sample = sample.replace('BB_', '')
-	#data_2 = session.query(Metadata).filter(Metadata.SAMPLEID==sample).all()
 	data_2 = session.query(Metadata).statement
 	df_meta = pd.read_sql_query(data_2, session.bind)
 	metadata = df_meta.loc[df_meta['SAMPLEID']==int(sample)].to_json(orient='records')

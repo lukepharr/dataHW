@@ -1,2 +1,3 @@
-names = Plotly.d3.json('/names')
-console.log(names)
+names = Plotly.d3.json('/names', function(error, response){
+	console.log(response)
+	})

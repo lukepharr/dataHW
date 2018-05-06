@@ -31,7 +31,7 @@ def home():
 def names():
 	data_ = session.query(Samples).statement
 	df_names=pd.read_sql_query(data_,session.bind)
-	return jsonify(list(df_names))
+	return jsonify(list(df_names)[1:])
 
 @app.route("/otu")
 def otu():

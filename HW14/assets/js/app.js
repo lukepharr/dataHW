@@ -58,6 +58,7 @@ d3.csv("../../data.csv", function (error, data) {
     .attr("x", d => xLinearScale(d.birth_no_hs_diploma))
     .attr("y", d => yLinearScale(d.could_not_afford_dotor))
     .text(function(d){return d.state })
+    .attr('text-anchor', 'middle')
 
   chartGroup.append("g")
     .classed("axis", true)
@@ -65,7 +66,12 @@ d3.csv("../../data.csv", function (error, data) {
     .append('text')
     .classed('axis-text', true)
     .text('Percent of people who could not afford doctor')
-    .attr('transform', 'rotate(360)');
+    .attr('transform', 'rotate(360)')
+    .attr('text-anchor', 'middle')
+    .attr('x', svgHeight/2)
+    .attr('y',-10)
+
+
 
   chartGroup.append("g")
     .classed("axis", true)
@@ -73,7 +79,10 @@ d3.csv("../../data.csv", function (error, data) {
     .append('text')
     .classed('axis-text', true)
     .text('Percent of women who gave birth w/o highschool diplomas') 
-    .attr('transform', 'rotate(270)');
+    .attr('transform', 'rotate(270)')
+    .attr('text-anchor', 'middle')
+    .attr('x', -svgWidth/3)
+    .attr('y',-20)
 
 });  
 

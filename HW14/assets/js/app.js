@@ -52,9 +52,17 @@ d3.csv("../../data.csv", function (error, data) {
     .enter()
     .append("circle")
     .classed("circle", true)
-    .attr("x", xLinearScale(data.birth_no_hs_diploma))
-    .attr("y", yLinearScale(data.could_not_afford_dotor))
-    .text(function(data){return data.state})
+    .attr("cx", d => xLinearScale(d.birth_no_hs_diploma))
+    .attr("cy", d => yLinearScale(d.could_not_afford_dotor))
+    .append("text")
+    .attr("x", d => xLinearScale(d.birth_no_hs_diploma))
+    .attr("y", d => yLinearScale(d.could_not_afford_dotor))
+    .attr("dx", 65)
+    .attr('fill','red')
+    .text(function(d){return d.state })
+
+
+
 
 });  
 

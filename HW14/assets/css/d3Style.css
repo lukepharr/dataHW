@@ -1,6 +1,9 @@
 circle {
 	r: 15;
 	fill: blue;
+	fill-opacity: .2;
+	font-size: 15 px;
+	font-family: 'sans-serif';
 
 
 }

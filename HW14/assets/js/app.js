@@ -32,5 +32,29 @@ d3.csv("../../data.csv", function (error, data) {
     .range([chartHeight, 0])
     .domain([0, d3.max(data, d => d.could_not_afford_dotor)]);
 
+  var xLinearScale = d3.scaleLinear()
+    .range([chartHeight, 0])
+    .domain([0, d3.max(data, d => d.birth_no_hs_diploma)]);
+    
+  var bottomAxis = d3.axisBottom(xTimeScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
 
-});
+  chartGroup.append("g")
+    .classed("axis", true)
+    .call(leftAxis);
+
+  chartGroup.append("g")
+    .classed("axis", true)
+    .call(bottomAxis);  
+
+  chartGroup.selectAll(".circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .classed("circle", true)
+    .attr("x", xLinearScale(data.birth_no_hs_diploma))
+    .attr("y", yLinearScale(data.could_not_afford_dotor))
+    .text(function(data){return data.state})
+
+});  
+

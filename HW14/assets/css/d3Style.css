@@ -6,9 +6,15 @@ circle {
 
 
 }
-inside-text {
+.inside-text {
 	fill: red;
 	fill-opacity: 1.0;
-	font-size: 15 px;
+	font-size: 10px;
+	font-family: 'sans-serif';	
+}
+.axis-text {
+	fill: red;
+	fill-opacity: 1.0;
+	font-size: 0px;
 	font-family: 'sans-serif';	
 }

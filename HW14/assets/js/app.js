@@ -39,13 +39,6 @@ d3.csv("../../data.csv", function (error, data) {
   var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
 
-  chartGroup.append("g")
-    .classed("axis", true)
-    .call(leftAxis);
-
-  chartGroup.append("g")
-    .classed("axis", true)
-    .call(bottomAxis);  
 
   chartGroup.selectAll(".circle")
     .data(data)
@@ -54,14 +47,33 @@ d3.csv("../../data.csv", function (error, data) {
     .classed("circle", true)
     .attr("cx", d => xLinearScale(d.birth_no_hs_diploma))
     .attr("cy", d => yLinearScale(d.could_not_afford_dotor))
+
+
+
+  chartGroup.selectAll(".text")
+  	.data(data)
+  	.enter()
     .append("text")
     .classed('inside-text', true)
     .attr("x", d => xLinearScale(d.birth_no_hs_diploma))
     .attr("y", d => yLinearScale(d.could_not_afford_dotor))
     .text(function(d){return d.state })
 
+  chartGroup.append("g")
+    .classed("axis", true)
+    .call(leftAxis)
+    .append('text')
+    .classed('axis-text', true)
+    .text('Percent of people who could not afford doctor')
+    .attr('transform', 'rotate(360)');
 
-
+  chartGroup.append("g")
+    .classed("axis", true)
+    .call(bottomAxis)
+    .append('text')
+    .classed('axis-text', true)
+    .text('Percent of women who gave birth w/o highschool diplomas') 
+    .attr('transform', 'rotate(270)');
 
 });  
 

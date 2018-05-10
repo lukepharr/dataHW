@@ -20,6 +20,17 @@ var svg = d3
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${chartMargin.left}, ${chartMargin.top})`);
 
-d3.csv("../../data.csv", function (error, tvData) {
-	
+d3.csv("../../data.csv", function (error, data) {
+  if (error) return console.warn(error);
+  console.log(data);
+  data.forEach(function (d) {
+    d.could_not_afford_dotor = +d.could_not_afford_dotor;
+    d.birth_no_hs_diploma = +d.birth_no_hs_diploma;
+  });
+
+  var yLinearScale = d3.scaleLinear()
+    .range([chartHeight, 0])
+    .domain([0, d3.max(data, d => d.could_not_afford_dotor)]);
+
+
 });

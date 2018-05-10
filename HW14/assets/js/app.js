@@ -33,10 +33,10 @@ d3.csv("../../data.csv", function (error, data) {
     .domain([0, d3.max(data, d => d.could_not_afford_dotor)]);
 
   var xLinearScale = d3.scaleLinear()
-    .range([chartHeight, 0])
+    .range([0, chartHeight])
     .domain([0, d3.max(data, d => d.birth_no_hs_diploma)]);
     
-  var bottomAxis = d3.axisBottom(xTimeScale);
+  var bottomAxis = d3.axisBottom(xLinearScale);
   var leftAxis = d3.axisLeft(yLinearScale);
 
   chartGroup.append("g")

@@ -2,8 +2,13 @@ circle {
 	r: 15;
 	fill: blue;
 	fill-opacity: .2;
+
+
+
+}
+inside-text {
+	fill: red;
+	fill-opacity: 1.0;
 	font-size: 15 px;
-	font-family: 'sans-serif';
-
-
+	font-family: 'sans-serif';	
 }

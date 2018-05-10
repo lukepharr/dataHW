@@ -55,10 +55,9 @@ d3.csv("../../data.csv", function (error, data) {
     .attr("cx", d => xLinearScale(d.birth_no_hs_diploma))
     .attr("cy", d => yLinearScale(d.could_not_afford_dotor))
     .append("text")
+    .classed('inside-text', true)
     .attr("x", d => xLinearScale(d.birth_no_hs_diploma))
     .attr("y", d => yLinearScale(d.could_not_afford_dotor))
-    .attr("dx", 65)
-    .attr('fill','red')
     .text(function(d){return d.state })
 
 

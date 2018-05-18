@@ -27,7 +27,7 @@ d3.json(url, function(response){
 				color: getColor(mag),
 				fillOpacity: .5,
 				radius: mag*30000
-			}).addTo(myMap)
+			}).addTo(myMap).bindPopup("Magnitude of "+d.properties.mag)
 
 	})
 });
